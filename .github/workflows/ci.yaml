@@ -7,7 +7,7 @@ on:
       - master
 
 jobs:
-  build:
+  run-ci:
     runs-on: ubuntu-latest
     steps:
       - name: Cancel previous runs
@@ -30,4 +30,9 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: >
-          ./gradlew --info test
+          ./gradlew test
+      - name: Upload artefact
+        uses: actions/upload-artefact@v4
+        with:
+          name: Package
+          path: build/libs
