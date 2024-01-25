@@ -21,11 +21,11 @@ jobs:
         with:
           distribution: 'zulu'
           java-version: 8
-      - name: Build project
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: >
-          ./gradlew build jacocoTestReport
+      # - name: Build project
+      #   env:
+      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      #   run: >
+      #     ./gradlew build jacocoTestReport
       - name: Run tests
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
