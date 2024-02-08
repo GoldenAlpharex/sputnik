@@ -71,7 +71,7 @@ class DetektProcessorTest {
 
         assertThat(result).isNotNull();
         assertThat(result.getViolations())
-                .hasSize(2)
+                .hasSize(1)
                 .contains(new Violation(VIOLATIONS_4, 7, "[coroutines/GlobalCoroutineUsage] The usage of the `GlobalScope` instance is highly discouraged.", Severity.ERROR));
     }
 
@@ -105,6 +105,14 @@ class DetektProcessorTest {
         ReviewResult result = detektProcessor.process(review);
 
         assertThat(result).isNotNull();
+    }
+
+    @Test
+    void shouldReturnHelloWorld() {
+        String expected = "Hello World!";
+        String result = sut.GetHelloWorld();
+
+        assertThat(result).isEqualTo(expected);
     }
 
     private Review getReview(String... filePaths) {

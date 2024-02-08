@@ -101,6 +101,11 @@ public class DetektProcessor implements ReviewProcessor {
         return SOURCE_NAME;
     }
 
+    @NotNull
+    public String GetHelloWorld() {
+        return "Hello World!";
+    }
+
     private PrintStream buildPrintStream() {
         try {
             File tempFile = File.createTempFile("detekt", "out");
